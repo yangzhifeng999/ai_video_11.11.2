@@ -6,10 +6,10 @@
 const COS = require('cos-nodejs-sdk-v5');
 const tencentcloud = require('tencentcloud-sdk-nodejs');
 
-// 配置（添加默认值以防环境变量未设置）
+// 配置（必须从环境变量获取，不提供默认值）
 const config = {
-  secretId: process.env.TENCENT_SECRET_ID || 'AKIDiPuCHZkiZDet1zkJfrulRp45tXyBAvVs',
-  secretKey: process.env.TENCENT_SECRET_KEY || 'EE1bzEF3e2OXSAgy2yhCTZUCgwzpRq2z',
+  secretId: process.env.TENCENT_SECRET_ID,
+  secretKey: process.env.TENCENT_SECRET_KEY,
   region: process.env.TENCENT_REGION || 'ap-shanghai',
   cos: {
     bucket: process.env.COS_BUCKET || 'yang0313-storage-1318057968',

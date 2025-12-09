@@ -182,9 +182,9 @@
 
 ### 1. 获取 SecretId 和 SecretKey
 
-已在云函数环境变量中配置：
-- SecretId: `AKIDiPuCHZkiZDet1zkJfrulRp45tXyBAvVs`
-- SecretKey: `EE1bzEF3e2OXSAgy2yhCTZUCgwzpRq2z`
+请在云函数环境变量中配置：
+- SecretId: `你的实际SecretId`（从腾讯云控制台获取）
+- SecretKey: `你的实际SecretKey`（从腾讯云控制台获取）
 
 ### 2. 获取 SubAppId
 
@@ -198,8 +198,8 @@
 确保云函数 `upload` 和 `order` 已配置以下环境变量：
 
 ```env
-TENCENT_SECRET_ID=AKIDiPuCHZkiZDet1zkJfrulRp45tXyBAvVs
-TENCENT_SECRET_KEY=EE1bzEF3e2OXSAgy2yhCTZUCgwzpRq2z
+TENCENT_SECRET_ID=${TENCENT_SECRET_ID}
+TENCENT_SECRET_KEY=${TENCENT_SECRET_KEY}
 TENCENT_REGION=ap-shanghai
 VOD_SUB_APP_ID=0  # 如果创建了子应用，使用子应用ID
 ```

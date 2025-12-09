@@ -6,20 +6,20 @@
 const tencentcloud = require('tencentcloud-sdk-nodejs-tcb');
 const TcbClient = tencentcloud.tcb.v20180608.Client;
 
-// 配置
+// 配置（从环境变量读取，不要硬编码敏感信息）
 const config = {
-  secretId: 'AKIDiPuCHZkiZDet1zkJfrulRp45tXyBAvVs',
-  secretKey: 'EE1bzEF3e2OXSAgy2yhCTZUCgwzpRq2z',
+  secretId: process.env.TENCENT_SECRET_ID || '',
+  secretKey: process.env.TENCENT_SECRET_KEY || '',
   region: 'ap-shanghai',
   envId: 'yang0313-7g4dqwd46c63d876',
 };
 
-// 环境变量
+// 环境变量（从环境变量读取，不要硬编码敏感信息）
 const envVariables = {
   TCB_ENV: 'yang0313-7g4dqwd46c63d876',
   JWT_SECRET: '306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24',
-  TENCENT_SECRET_ID: 'AKIDiPuCHZkiZDet1zkJfrulRp45tXyBAvVs',
-  TENCENT_SECRET_KEY: 'EE1bzEF3e2OXSAgy2yhCTZUCgwzpRq2z',
+  TENCENT_SECRET_ID: process.env.TENCENT_SECRET_ID || '',
+  TENCENT_SECRET_KEY: process.env.TENCENT_SECRET_KEY || '',
   TENCENT_REGION: 'ap-shanghai',
   COS_BUCKET: 'yang0313-storage-1318057968',
   COS_REGION: 'ap-shanghai',

@@ -19,8 +19,8 @@
 |--------|-----|------|
 | `TCB_ENV` | `yang0313-7g4dqwd46c63d876` | 云开发环境ID |
 | `JWT_SECRET` | `306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24` | JWT加密密钥（已生成） |
-| `TENCENT_SECRET_ID` | `AKIDiPuCHZkiZDet1zkJfrulRp45tXyBAvVs` | 腾讯云API密钥ID |
-| `TENCENT_SECRET_KEY` | `EE1bzEF3e2OXSAgy2yhCTZUCgwzpRq2z` | 腾讯云API密钥Key |
+| `TENCENT_SECRET_ID` | `你的实际SecretId` | 腾讯云API密钥ID（从控制台获取） |
+| `TENCENT_SECRET_KEY` | `你的实际SecretKey` | 腾讯云API密钥Key（从控制台获取） |
 | `TENCENT_REGION` | `ap-shanghai` | 腾讯云地域（上海） |
 | `COS_BUCKET` | `yang0313-storage-1318057968` | COS存储桶名称 |
 | `COS_REGION` | `ap-shanghai` | COS地域（上海） |

@@ -36,8 +36,8 @@
 |--------|-----|
 | `TCB_ENV` | `yang0313-7g4dqwd46c63d876` |
 | `JWT_SECRET` | `306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24` |
-| `TENCENT_SECRET_ID` | `AKIDiPuCHZkiZDet1zkJfrulRp45tXyBAvVs` |
-| `TENCENT_SECRET_KEY` | `EE1bzEF3e2OXSAgy2yhCTZUCgwzpRq2z` |
+| `TENCENT_SECRET_ID` | `你的实际SecretId`（从腾讯云控制台获取） |
+| `TENCENT_SECRET_KEY` | `你的实际SecretKey`（从腾讯云控制台获取） |
 | `TENCENT_REGION` | `ap-shanghai` |
 | `COS_BUCKET` | `yang0313-storage-1318057968` |
 | `COS_REGION` | `ap-shanghai` |
