@@ -1,0 +1,268 @@
+.revenue-share-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+.revenue-share-content {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 40px;
+  overflow-y: auto;
+}
+
+/* ==================== 分成比例卡片 ==================== */
+.share-ratio-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.share-ratio-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.share-ratio-icon {
+  font-size: 32px;
+  margin-right: 12px;
+}
+
+.share-ratio-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.share-ratio-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.share-ratio-item {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.share-ratio-item.creator {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.share-ratio-item.platform {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.ratio-label {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.ratio-value {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.ratio-desc {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.share-ratio-divider {
+  font-size: 24px;
+  font-weight: bold;
+  color: #999;
+  margin: 0 8px;
+}
+
+/* ==================== 规则说明 ==================== */
+.rules-section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.rules-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.rules-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.rules-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.rule-block {
+  margin-bottom: 24px;
+}
+
+.rule-block:last-child {
+  margin-bottom: 0;
+}
+
+.rule-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 12px 0;
+  padding-left: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.rule-content {
+  padding-left: 16px;
+}
+
+.rule-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #666;
+  margin: 0 0 12px 0;
+  text-align: justify;
+}
+
+.rule-text:last-child {
+  margin-bottom: 0;
+}
+
+.rule-text strong {
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* ==================== 联系客服 ==================== */
+.contact-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.contact-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.contact-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.contact-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-info {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-label {
+  color: #999;
+  min-width: 80px;
+}
+
+.contact-value {
+  color: #333;
+  font-weight: 500;
+}
+
+/* ==================== 温馨提示 ==================== */
+.warm-tip {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.tip-icon {
+  font-size: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.tip-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* ==================== 响应式适配 ==================== */
+@media (max-width: 768px) {
+  .share-ratio-body {
+    flex-direction: column;
+  }
+
+  .share-ratio-item {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .share-ratio-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .share-ratio-divider {
+    transform: rotate(90deg);
+    margin: 8px 0;
+  }
+}
+
+/* ==================== 滚动条美化 ==================== */
+.revenue-share-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.revenue-share-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.revenue-share-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.revenue-share-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}

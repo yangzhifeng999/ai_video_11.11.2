@@ -1,0 +1,3 @@
+/* 复用 AdminDashboard.css 和 UserDetail.css 的样式 */
+@import './AdminDashboard.css';
+@import './UserDetail.css';

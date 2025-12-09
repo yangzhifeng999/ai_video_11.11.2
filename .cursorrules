@@ -1,0 +1,533 @@
+# AI视频交易平台 - 开发规范
+
+## 项目概述
+基于腾讯云服务的视频交易平台，支持创作者上传视频/文案内容，用户付费购买并使用AI技术制作同款视频。
+
+## 技术栈规范
+
+### 后端
+- **云服务**: 腾讯云（CloudBase云函数、云开发数据库、COS、CDN、VOD）
+- **架构**: Serverless（云函数）
+- **API风格**: RESTful API
+- **认证方式**: JWT Token
+- **数据库**: 云开发数据库（MongoDB）
+- **文件存储**: 腾讯云COS
+- **视频处理**: 腾讯云VOD
+- **API触发**: HTTP 触发器（云函数）
+
+### 前端
+- **框架**: React 18+ / Next.js（根据实际选择）
+- **语言**: TypeScript（推荐）或 JavaScript
+- **UI组件库**: Ant Design Mobile 或 Vant
+- **状态管理**: Zustand
+- **路由**: React Router v6
+- **HTTP客户端**: Axios
+- **视频播放**: Video.js 或 DPlayer
+- **图片处理**: react-image-crop
+- **表单验证**: React Hook Form + Zod
+
+## 代码规范
+
+### 命名规范
+- **文件名**: 
+  - 组件文件使用 PascalCase: `VideoPlayer.tsx`
+  - 工具文件使用 camelCase: `formatDate.ts`
+  - 常量文件使用 UPPER_SNAKE_CASE: `API_CONSTANTS.ts`
+- **变量/函数**: camelCase
+- **组件名**: PascalCase
+- **常量**: UPPER_SNAKE_CASE
+- **类型/接口**: PascalCase，接口以 `I` 开头: `IUser`, `IVideo`
+- **CSS类名**: kebab-case: `video-player-container`
+
+### 文件组织
+```
+src/
+├── components/          # 通用组件
+│   ├── VideoCard/
+│   │   ├── index.tsx
+│   │   ├── VideoCard.tsx
+│   │   └── VideoCard.module.css
+│   └── Button/
+├── pages/              # 页面组件
+│   ├── Home/
+│   ├── VideoDetail/
+│   └── Profile/
+├── hooks/              # 自定义Hooks
+│   ├── useAuth.ts
+│   └── useVideo.ts
+├── services/           # API服务
+│   ├── api.ts
+│   ├── videoService.ts
+│   └── userService.ts
+├── store/              # 状态管理
+│   ├── slices/
+│   └── index.ts
+├── utils/              # 工具函数
+│   ├── formatDate.ts
+│   └── validators.ts
+├── types/              # TypeScript类型定义
+│   ├── user.ts
+│   └── video.ts
+├── constants/          # 常量定义
+│   ├── routes.ts
+│   └── api.ts
+└── styles/             # 全局样式
+    └── global.css
+```
+
+### React组件规范
+```typescript
+// 1. 使用函数式组件 + Hooks
+// 2. 组件必须有TypeScript类型定义
+// 3. Props接口必须定义
+// 4. 组件名必须与文件名一致
+
+// ✅ 正确示例
+interface VideoCardProps {
+  video: IVideo;
+  onPlay?: (videoId: string) => void;
+}
+
+export const VideoCard: React.FC<VideoCardProps> = ({ video, onPlay }) => {
+  // 组件逻辑
+  return <div>...</div>;
+};
+
+// ❌ 错误示例
+export default function videoCard({ video }) { // 缺少类型定义
+  return <div>...</div>;
+}
+```
+
+### 异步处理规范
+- 统一使用 `async/await`，避免 `.then()` 链式调用
+- API调用必须包含错误处理
+- 使用自定义Hook封装API调用
+- 加载状态和错误状态必须显示给用户
+
+```typescript
+// ✅ 正确示例
+const { data, loading, error } = useVideo(videoId);
+
+if (loading) return <Loading />;
+if (error) return <Error message={error.message} />;
+return <VideoPlayer video={data} />;
+```
+
+### API调用规范
+- 所有API调用必须通过 `services` 目录下的服务层
+- 使用统一的请求拦截器处理Token和错误
+- API响应必须有TypeScript类型定义
+- 遵循RESTful规范
+
+```typescript
+// services/videoService.ts
+export interface VideoResponse {
+  id: string;
+  title: string;
+  url: string;
+  // ...
+}
+
+export const videoService = {
+  getVideo: async (id: string): Promise<VideoResponse> => {
+    const response = await api.get(`/videos/${id}`);
+    return response.data;
+  },
+  
+  uploadVideo: async (file: File, data: VideoUploadData): Promise<VideoResponse> => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('data', JSON.stringify(data));
+    const response = await api.post('/videos/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data;
+  },
+};
+```
+
+## 腾讯云服务集成规范
+
+### COS文件上传
+```typescript
+// 1. 大文件使用分片上传
+// 2. 显示上传进度
+// 3. 支持断点续传
+// 4. 视频文件必须在上传到COS后进行VOD处理
+
+import COS from 'cos-js-sdk-v5';
+
+const uploadToCOS = async (file: File, onProgress?: (percent: number) => void) => {
+  const cos = new COS({
+    SecretId: import.meta.env.VITE_COS_SECRET_ID,
+    SecretKey: import.meta.env.VITE_COS_SECRET_KEY,
+  });
+  
+  return cos.uploadFile({
+    Bucket: 'your-bucket',
+    Region: 'ap-guangzhou',
+    Key: `videos/${Date.now()}_${file.name}`,
+    Body: file,
+    onProgress: (progressData) => {
+      onProgress?.(Math.round(progressData.percent * 100));
+    },
+  });
+};
+```
+
+### 视频处理（VOD）
+- 上传到COS后，调用VOD API进行转码
+- 生成多个清晰度的视频文件
+- 生成视频封面图
+- 处理完成后更新数据库
+
+## 支付集成规范
+
+### 支付流程
+1. 前端发起支付请求 → 后端创建订单
+2. 后端调用支付接口 → 返回支付参数
+3. 前端调用支付SDK → 用户支付
+4. 支付回调 → 后端验证签名 → 更新订单状态
+5. 前端轮询订单状态或使用WebSocket推送
+
+### 安全要求
+- 支付金额必须后端验证，前端仅展示
+- 所有支付相关接口必须有签名验证
+- 防止重复支付和金额篡改
+- 支付日志必须完整记录
+
+```typescript
+// ✅ 正确：金额在后端验证
+const createOrder = async (videoId: string) => {
+  const response = await api.post('/orders', { videoId });
+  // 返回的订单信息包含后端计算的价格
+  return response.data;
+};
+
+// ❌ 错误：前端计算价格
+const createOrder = async (videoId: string, price: number) => {
+  // 价格可能被篡改
+  const response = await api.post('/orders', { videoId, price });
+};
+```
+
+## 状态管理规范
+
+### 全局状态 vs 本地状态
+- **全局状态**: 用户信息、认证状态、购物车等跨页面共享数据
+- **本地状态**: 组件内部的UI状态（如：展开/收起、输入值等）
+
+### Store组织
+```typescript
+// store/userStore.ts
+import { create } from 'zustand';
+
+interface UserState {
+  user: IUser | null;
+  isAuthenticated: boolean;
+  setUser: (user: IUser | null) => void;
+  clearUser: () => void;
+}
+
+export const useUserStore = create<UserState>((set) => ({
+  user: null,
+  isAuthenticated: false,
+  setUser: (user) => set({ user, isAuthenticated: !!user }),
+  clearUser: () => set({ user: null, isAuthenticated: false }),
+}));
+```
+
+## 错误处理规范
+
+### API错误处理
+```typescript
+// utils/errorHandler.ts
+export const handleApiError = (error: any) => {
+  if (error.response) {
+    // 服务器返回错误
+    switch (error.response.status) {
+      case 401:
+        // 未授权，跳转登录
+        router.push('/login');
+        break;
+      case 403:
+        // 无权限
+        message.error('无权限访问');
+        break;
+      case 500:
+        // 服务器错误
+        message.error('服务器错误，请稍后重试');
+        break;
+      default:
+        message.error(error.response.data.message || '请求失败');
+    }
+  } else {
+    // 网络错误
+    message.error('网络连接失败，请检查网络');
+  }
+};
+```
+
+### 用户友好的错误提示
+- 错误消息必须清晰易懂
+- 提供解决方案或下一步操作
+- 技术错误不要直接展示给用户
+- 重要操作失败提供重试机制
+
+## UI/UX规范
+
+### 响应式设计
+- 移动端优先设计
+- 使用Flexbox/Grid布局
+- 图片和视频响应式适配
+- 最小触摸目标：44x44px
+
+### 加载状态
+- 所有异步操作必须显示加载状态
+- 使用骨架屏（Skeleton）替代Loading Spinner（列表页）
+- 长列表使用虚拟滚动
+
+### 视频播放
+- 自动播放：需要用户交互后才能自动播放
+- 支持全屏播放
+- 显示播放进度
+- 支持播放速度调节
+- 网络不好时自动降低清晰度
+
+### 图片处理
+- 头像上传支持裁剪
+- 图片压缩后上传（减少带宽）
+- 使用懒加载（Lazy Loading）
+- 提供图片加载失败占位图
+
+## 性能优化规范
+
+### 代码分割
+```typescript
+// 路由级别的代码分割
+const VideoDetail = lazy(() => import('./pages/VideoDetail'));
+const Profile = lazy(() => import('./pages/Profile'));
+
+<Suspense fallback={<Loading />}>
+  <Routes>
+    <Route path="/video/:id" element={<VideoDetail />} />
+  </Routes>
+</Suspense>
+```
+
+### 资源优化
+- 图片使用WebP格式
+- 视频使用CDN加速
+- 静态资源使用CDN
+- 开启Gzip压缩
+
+### 缓存策略
+- API响应合理使用缓存（React Query / SWR）
+- 静态资源设置长期缓存
+- 视频文件使用CDN缓存
+
+## 安全规范
+
+### 前端安全
+- 敏感信息不存储在localStorage（使用httpOnly Cookie）
+- API Token存储在内存或Secure Storage
+- 用户输入必须验证和过滤
+- 防止XSS攻击（使用框架内置转义）
+- 防止CSRF攻击（使用Token验证）
+
+### 数据加密
+- 密码必须加密传输（HTTPS）
+- 支付数据加密传输
+- 敏感数据加密存储
+
+### 权限控制
+- 前端路由守卫（未登录跳转登录页）
+- API调用权限验证
+- 敏感操作需要二次确认
+
+## 测试规范
+
+### 单元测试
+- 工具函数必须有单元测试
+- 覆盖率目标：80%+
+
+### 集成测试
+- 关键业务流程必须有集成测试
+- API接口必须有测试用例
+
+### E2E测试
+- 核心用户流程必须有E2E测试
+- 支付流程必须有E2E测试
+
+## 代码审查规范
+
+### Pull Request要求
+- PR必须有清晰描述
+- 代码必须有注释（复杂逻辑）
+- 必须通过Lint检查
+- 必须通过类型检查
+- 必须有测试覆盖（如适用）
+
+### Commit Message规范
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+**Type类型**:
+- `feat`: 新功能
+- `fix`: 修复bug
+- `docs`: 文档更新
+- `style`: 代码格式调整
+- `refactor`: 重构
+- `test`: 测试相关
+- `chore`: 构建/工具相关
+
+**示例**:
+```
+feat(video): 添加视频上传进度显示
+
+- 实现上传进度条
+- 支持断点续传
+- 添加上传失败重试机制
+
+Closes #123
+```
+
+## 环境变量规范
+
+```env
+# .env.development
+VITE_API_BASE_URL=http://localhost:3000/api
+VITE_USE_MOCK_DATA=true
+VITE_COS_SECRET_ID=your_secret_id
+VITE_COS_SECRET_KEY=your_secret_key
+VITE_COS_BUCKET=your_bucket_name
+VITE_COS_REGION=ap-guangzhou
+VITE_VOD_SECRET_ID=your_vod_secret_id
+VITE_VOD_SECRET_KEY=your_vod_secret_key
+```
+
+**注意**:
+- 环境变量必须以 `VITE_` 开头（Vite 项目）
+- 敏感信息不能提交到Git
+- 使用 `.env.example` 文件作为模板
+
+## 文档规范
+
+### 代码注释
+- 公共API必须有JSDoc注释
+- 复杂逻辑必须有解释性注释
+- 组件Props必须有类型定义和注释
+
+```typescript
+/**
+ * 视频播放组件
+ * @param video - 视频信息对象
+ * @param autoPlay - 是否自动播放，默认false
+ * @param onEnded - 播放结束回调
+ */
+export const VideoPlayer: React.FC<VideoPlayerProps> = ({
+  video,
+  autoPlay = false,
+  onEnded,
+}) => {
+  // ...
+};
+```
+
+### README文档
+- 项目必须包含README.md
+- 包含安装、运行、部署说明
+- 包含项目结构说明
+- 包含开发规范链接
+
+## 数据库设计规范
+
+### 命名规范
+- 集合名：小写+下划线，复数形式: `videos`, `user_orders`
+- 字段名：camelCase: `createdAt`, `videoId`（推荐）或小写+下划线: `created_at`, `video_id`
+- 索引命名: `idx_集合名_字段名`
+
+### 字段要求
+- 必须有 `_id` 主键（MongoDB 自动生成）或自定义 `id` 字段（UUID）
+- 必须有 `createdAt` 和 `updatedAt` 时间戳（ISO 8601 格式）
+- 软删除使用 `deletedAt` 字段
+- 状态字段使用枚举类型（字符串）
+
+### 关系设计
+- MongoDB 使用文档引用（ObjectId）而非外键约束
+- 关联查询使用聚合管道或应用层处理
+- 多对多关系使用数组字段或中间集合
+- 注意文档大小限制（16MB）
+
+## 版本控制规范
+
+### Git分支策略
+- `main`: 生产环境代码
+- `develop`: 开发环境代码
+- `feature/xxx`: 功能分支
+- `bugfix/xxx`: Bug修复分支
+- `hotfix/xxx`: 紧急修复分支
+
+### 分支合并
+- Feature分支合并到develop
+- Develop测试通过后合并到main
+- Hotfix直接合并到main和develop
+
+## 部署规范
+
+### 环境分离
+- **开发环境**: 开发人员本地开发
+- **测试环境**: 功能测试和集成测试
+- **预发布环境**: 上线前最后验证
+- **生产环境**: 线上正式环境
+
+### 构建要求
+- 生产构建必须优化（代码压缩、Tree Shaking）
+- 构建产物必须包含版本号
+- 静态资源使用CDN
+- 启用HTTPS
+
+### 监控与日志
+- 错误日志必须记录
+- API调用日志必须记录
+- 性能监控必须配置
+- 用户行为分析（可选）
+
+## 特殊情况处理
+
+### 视频处理超时
+- 超过30分钟未完成，自动标记为失败
+- 通知用户并自动退款
+- 记录错误日志供排查
+
+### 支付回调失败
+- 实现支付回调重试机制
+- 提供手动对账功能
+- 异常订单人工处理流程
+
+### 网络异常
+- 提供离线提示
+- 支持操作重试
+- 关键数据本地缓存
+
+## 持续更新
+
+本规范文件会随着项目发展持续更新，所有开发人员有责任：
+1. 遵循当前规范
+2. 提出改进建议
+3. 及时更新文档
+
+---
+
+**最后更新**: 2025年1月
+
+
+
+
+

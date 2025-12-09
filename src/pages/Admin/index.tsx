@@ -1,0 +1,9 @@
+export { AdminLogin } from './AdminLogin';
+export { AdminDashboard } from './AdminDashboard';
+export { UserManagement } from './UserManagement';
+export { UserDetail } from './UserDetail';
+export { ContentReview } from './ContentReview';
+export { ReviewDetail } from './ReviewDetail';
+export { VideoManagement } from './VideoManagement';
+export { VideoDetail } from './VideoDetail';
+export { VideoUpload } from './VideoUpload';

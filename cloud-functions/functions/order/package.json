@@ -1,0 +1,11 @@
+{
+  "name": "order",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "tencentcloud-sdk-nodejs": "^4.0.0"
+  }
+}
+

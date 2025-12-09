@@ -1,0 +1,528 @@
+.make-video-page {
+  height: 100vh;
+  background: linear-gradient(180deg, #f8f9fe 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 错误页面 */
+.make-video-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px;
+}
+
+.make-video-error-text {
+  font-size: 16px;
+  color: #666;
+}
+
+/* 内容区 */
+.make-video-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 16px 120px;
+}
+
+/* 进度卡片 */
+.make-video-progress-card {
+  background: linear-gradient(135deg, #1677ff 0%, #0958d9 100%);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(22, 119, 255, 0.25);
+}
+
+.progress-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progress-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1677ff;
+}
+
+.progress-detail {
+  flex: 1;
+}
+
+.progress-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.progress-subtitle {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 上传头部卡片 */
+.upload-header-card {
+  text-align: center;
+  padding: 20px 24px;
+}
+
+.upload-header-card .make-video-card-title {
+  margin-bottom: 4px;
+}
+
+.upload-header-card .make-video-card-subtitle {
+  margin-bottom: 0;
+}
+
+/* 上传项卡片 */
+.upload-item-card {
+  position: relative;
+}
+
+.upload-item-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.upload-item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f0f5ff 0%, #e6f4ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.upload-item-info {
+  flex: 1;
+}
+
+.upload-item-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.required-mark {
+  color: #ff4d4f;
+  font-size: 14px;
+}
+
+.upload-item-type {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+.upload-status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.upload-status-badge.success {
+  background: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
+
+.upload-status-badge.error {
+  background: #fff2f0;
+  color: #ff4d4f;
+  border: 1px solid #ffccc7;
+}
+
+.upload-status-badge.detecting {
+  background: #e6f4ff;
+  color: #1677ff;
+  border: 1px solid #91caff;
+}
+
+.upload-item-desc {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 16px;
+  line-height: 1.5;
+  padding-left: 56px;
+}
+
+.upload-item-example {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.example-label {
+  font-size: 13px;
+  color: #666;
+}
+
+.upload-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reupload-btn {
+  align-self: flex-start;
+}
+
+/* 卡片容器 */
+.make-video-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.make-video-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px;
+}
+
+.make-video-card-subtitle {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 24px;
+}
+
+/* 上传区域 - 新设计 */
+.make-video-upload-zone {
+  border: 2px dashed #d9d9d9;
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  margin-bottom: 24px;
+}
+
+.make-video-upload-zone:hover {
+  border-color: #1677ff;
+  background: #f0f5ff;
+  transform: translateY(-2px);
+}
+
+.make-video-upload-zone:active {
+  transform: translateY(0);
+}
+
+.make-video-upload-icon-large {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.make-video-upload-main-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.make-video-upload-sub-text {
+  font-size: 13px;
+  color: #999;
+}
+
+/* 照片要求 */
+.make-video-requirements {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.make-video-requirement-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+}
+
+.make-video-requirement-icon {
+  color: #52c41a;
+  font-weight: 700;
+}
+
+/* 预览头部 */
+.make-video-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* 照片预览卡片 */
+.make-video-face-preview-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* 检测中遮罩 */
+.make-video-detecting-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.make-video-detecting-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.make-video-detecting-text {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* 检测结果 */
+.make-video-detection-result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.make-video-detection-result.success {
+  background: linear-gradient(135deg, #f6ffed 0%, #d9f7be 100%);
+  color: #389e0d;
+  border: 2px solid #b7eb8f;
+}
+
+.make-video-detection-result.error {
+  background: linear-gradient(135deg, #fff2f0 0%, #ffccc7 100%);
+  color: #cf1322;
+  border: 2px solid #ffa39e;
+}
+
+.make-video-result-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.make-video-detection-result.success .make-video-result-icon {
+  background: #52c41a;
+  color: #fff;
+}
+
+.make-video-detection-result.error .make-video-result-icon {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.make-video-result-message {
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* 模板信息 */
+.make-video-template-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.make-video-template-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.make-video-template-time {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+}
+
+.make-video-template-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff4d4f;
+  line-height: 1;
+}
+
+.make-video-template-preview {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 支付方式 - 新设计 */
+.make-video-payment-group {
+  margin-bottom: 20px;
+}
+
+.make-video-payment-option-new {
+  width: 100%;
+  padding: 16px !important;
+  border: 2px solid #e8e8e8 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.make-video-payment-option-new:hover {
+  border-color: #1677ff !important;
+  background: #f0f5ff;
+}
+
+.make-video-payment-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.make-video-payment-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.make-video-payment-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  flex: 1;
+}
+
+.make-video-payment-balance {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 用户协议 */
+.make-video-terms-checkbox {
+  padding: 16px;
+  background: #f7f9fc;
+  border-radius: 8px;
+}
+
+.make-video-terms-text {
+  font-size: 13px;
+  color: #666;
+}
+
+.make-video-terms-link {
+  color: #1677ff;
+  margin-left: 4px;
+}
+
+/* 底部固定区域 */
+.make-video-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 100;
+}
+
+.make-video-footer-info {
+  flex: 1;
+}
+
+.make-video-footer-label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.make-video-footer-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff4d4f;
+  line-height: 1;
+}
+
+.make-video-pay-button {
+  flex: 1;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #1677ff 0%, #0958d9 100%);
+  border: none;
+  box-shadow: 0 4px 12px rgba(22, 119, 255, 0.3);
+}
+
+.make-video-pay-button:active {
+  transform: scale(0.98);
+}
+
+/* 响应式优化 */
+@media (min-width: 768px) {
+  .make-video-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .make-video-footer {
+    max-width: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

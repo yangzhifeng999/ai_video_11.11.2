@@ -1,0 +1,7 @@
+/* 复用 AdminDashboard.css 的样式 */
+@import './AdminDashboard.css';
+
+.video-upload-form {
+  max-width: 800px;
+  margin: 0 auto;
+}

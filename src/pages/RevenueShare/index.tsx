@@ -1,0 +1,1 @@
+export { RevenueShare } from './RevenueShare';

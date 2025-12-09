@@ -1,0 +1,37 @@
+{
+  "name": "heiha-cloud-functions",
+  "version": "1.0.0",
+  "description": "嘿哈 AI视频平台 - 腾讯云函数后端",
+  "private": true,
+  "scripts": {
+    "deploy": "tcb fn deploy --all",
+    "deploy:auth": "tcb fn deploy auth",
+    "deploy:user": "tcb fn deploy user",
+    "deploy:video": "tcb fn deploy video",
+    "deploy:order": "tcb fn deploy order",
+    "deploy:upload": "tcb fn deploy upload",
+    "deploy:payment": "tcb fn deploy payment",
+    "deploy:taskCheck": "tcb fn deploy taskCheck",
+    "deploy:admin": "tcb fn deploy admin",
+    "logs": "tcb fn log",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.7.0",
+    "axios": "^1.6.2",
+    "bcryptjs": "^2.4.3",
+    "cos-nodejs-sdk-v5": "^2.12.0",
+    "crypto-js": "^4.2.0",
+    "dayjs": "^1.11.10",
+    "jsonwebtoken": "^9.0.2",
+    "tencentcloud-sdk-nodejs": "^4.0.0",
+    "tencentcloud-sdk-nodejs-scf": "^4.1.151",
+    "tencentcloud-sdk-nodejs-tcb": "^4.1.108",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "jest": "^29.7.0",
+    "typescript": "^5.3.3"
+  }
+}

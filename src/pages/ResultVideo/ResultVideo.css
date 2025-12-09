@@ -1,0 +1,214 @@
+.result-video-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #e8e8e8;
+}
+
+/* 错误页面 */
+.result-video-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px;
+  background: #e8e8e8;
+}
+
+.result-video-error-text {
+  font-size: 16px;
+  color: #666;
+}
+
+/* 内容区域 */
+.result-video-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px; /* 为底部操作栏留空间 */
+}
+
+/* 视频播放器 */
+.result-video-player-wrapper {
+  background: #000;
+  width: 100%;
+}
+
+.result-video-player {
+  width: 100%;
+  max-height: 70vh;
+  display: block;
+  background: #000;
+}
+
+/* 信息卡片 */
+.result-video-card {
+  background: #fff;
+  margin: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.result-video-card:first-of-type {
+  margin-top: 16px;
+}
+
+/* 卡片头部 */
+.result-video-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.result-video-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.result-video-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.result-video-status-icon {
+  font-size: 14px;
+}
+
+/* 信息网格 */
+.result-video-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.result-video-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.result-video-info-label {
+  font-size: 12px;
+  color: #999;
+}
+
+.result-video-info-value {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.result-video-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff4d4f;
+}
+
+/* 提示区域 */
+.result-video-card-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 16px;
+}
+
+.result-video-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.result-video-tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #f7f9fc;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.result-video-tip-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* 底部操作栏 */
+.result-video-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 12px 16px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 12px;
+  z-index: 100;
+}
+
+.result-video-footer-btn {
+  flex: 1;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.result-video-footer-btn.adm-button-fill-outline {
+  border: 2px solid #1677ff;
+  color: #1677ff;
+}
+
+/* 响应式设计 */
+@media (max-width: 375px) {
+  .result-video-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .result-video-footer {
+    flex-direction: column;
+  }
+  
+  .result-video-footer-btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .result-video-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .result-video-player {
+    max-height: 600px;
+  }
+  
+  .result-video-footer {
+    max-width: 800px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+

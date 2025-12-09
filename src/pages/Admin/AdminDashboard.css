@@ -1,0 +1,41 @@
+.admin-dashboard-layout {
+  min-height: 100vh;
+}
+
+.admin-header {
+  background: #001529;
+  padding: 0 24px;
+}
+
+.admin-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.admin-header-content h2 {
+  color: #fff;
+  margin: 0;
+  font-size: 20px;
+}
+
+.admin-content {
+  padding: 24px;
+  background: #f0f2f5;
+}
+
+.admin-dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .admin-content {
+    padding: 16px;
+  }
+}
+
+
+
+

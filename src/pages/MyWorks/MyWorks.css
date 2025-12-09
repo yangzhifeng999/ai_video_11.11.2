@@ -1,0 +1,305 @@
+.my-works-page {
+  height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: max(80px, calc(80px + env(safe-area-inset-bottom))); /* 留出底部导航栏和安卓系统导航栏空间 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.works-tabs {
+  background-color: #fff;
+  margin: 16px 16px 0 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.works-list {
+  padding: 16px;
+}
+
+.work-card {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  transition: all 0.2s;
+  padding: 12px;
+  background: #fff;
+}
+
+.work-card:active {
+  transform: scale(0.98);
+}
+
+.work-card-content-wrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.work-card-cover {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: #eee;
+}
+
+.work-card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.work-card-header-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.work-title-new {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+  margin-right: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.work-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px;
+  font-size: 12px;
+}
+
+.info-item {
+  color: #666;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.info-value-highlight {
+  color: #ff4d4f;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.info-value-green {
+  color: #52c41a;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+/* 详情弹窗样式 */
+.work-detail-popup {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background-color: #f5f5f5;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.work-detail-popup .adm-popup-body {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  max-height: 85vh;
+}
+
+.popup-header {
+  background: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.popup-close {
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.popup-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  padding-bottom: 24px;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0; /* 重要：让 flex 子元素可以收缩 */
+}
+
+.detail-cover-card {
+  margin-bottom: 16px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+}
+
+.detail-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-video {
+  width: 100%;
+  max-height: 300px;
+  background: #000;
+  border-radius: 8px;
+  display: block;
+}
+
+.detail-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  border: 2px solid #fff;
+}
+
+.detail-info-card {
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.detail-title-section {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+}
+
+.detail-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.detail-label {
+  color: #666;
+}
+
+.detail-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.detail-value.price {
+  color: #ff4d4f;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.detail-desc {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed #eee;
+}
+
+.detail-desc-label {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.detail-desc-content {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.popup-footer {
+  background: #fff;
+  padding: 12px 16px;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+}
+
+.edit-form {
+  padding-top: 8px;
+}
+
+.edit-field {
+  margin-bottom: 20px;
+}
+
+.edit-label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.price-range-hint {
+  font-size: 12px;
+  color: #ff8f1f;
+  margin-top: 6px;
+  background: #fff7e6;
+  padding: 6px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.price-input-wrapper {
+  position: relative;
+}
+
+.price-prefix {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  font-size: 16px;
+  z-index: 1;
+}
+
+.price-input-wrapper input {
+  padding-left: 24px !important;
+  font-size: 16px;
+  font-weight: 500;
+}

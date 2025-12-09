@@ -1,0 +1,191 @@
+.creator-detail-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #e8e8e8;
+  overflow: hidden;
+}
+
+/* 可滚动内容区域 */
+.creator-detail-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 错误页面 */
+.creator-detail-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px;
+}
+
+.creator-detail-error-text {
+  font-size: 16px;
+  color: #666;
+}
+
+/* 创作者头部区域 */
+.creator-detail-header {
+  position: relative;
+  background: #fff;
+  margin-bottom: 8px;
+}
+
+/* 背景封面 */
+.creator-detail-cover {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 创作者信息卡片 */
+.creator-detail-info {
+  padding: 0 16px 20px;
+  position: relative;
+  margin-top: -50px;
+}
+
+/* 头像容器 */
+.creator-detail-avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.creator-detail-avatar {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+/* 基本信息 */
+.creator-detail-basic {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.creator-detail-nickname {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.creator-detail-bio {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 16px;
+  text-align: center;
+}
+
+/* 统计数据 */
+.creator-detail-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 16px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.creator-detail-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.creator-detail-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+}
+
+.creator-detail-stat-label {
+  font-size: 13px;
+  color: #999;
+  line-height: 1;
+}
+
+/* 操作按钮 */
+.creator-detail-actions {
+  padding: 0 20px;
+}
+
+.creator-detail-follow-button {
+  border-radius: 24px;
+  font-weight: 600;
+  height: 44px;
+  font-size: 16px;
+}
+
+/* 标签页区域 */
+.creator-detail-tabs {
+  background: #fff;
+}
+
+.creator-detail-tabs .adm-tabs-header {
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.creator-detail-tabs .adm-tabs-content {
+  padding: 0;
+  background: #e8e8e8;
+  min-height: 60vh;
+}
+
+/* 作品网格 */
+.creator-detail-videos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 8px;
+  background: #e8e8e8;
+}
+
+.creator-detail-video-item {
+  width: 100%;
+}
+
+/* 空状态 */
+.creator-detail-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 40px 20px;
+  background: #e8e8e8;
+}
+
+.creator-detail-empty-text {
+  font-size: 14px;
+  color: #999;
+}
+
+/* 响应式优化 */
+@media (min-width: 768px) {
+  .creator-detail-videos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .creator-detail-videos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+

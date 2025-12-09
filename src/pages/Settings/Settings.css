@@ -1,0 +1,220 @@
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.settings-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 16px;
+  padding-bottom: max(80px, calc(80px + env(safe-area-inset-bottom))); /* 为底部导航栏和安卓系统导航栏留出空间 */
+  -webkit-overflow-scrolling: touch;
+}
+
+.settings-logout {
+  margin-top: 24px;
+  padding-bottom: 24px;
+}
+
+/* 帮助内容样式 */
+.help-content {
+  padding: 16px 0;
+  text-align: left;
+}
+
+.help-section {
+  margin-bottom: 24px;
+}
+
+.help-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.help-item {
+  margin-bottom: 16px;
+}
+
+.help-question {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.help-answer {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.help-contact {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* 关于我们内容样式 */
+.about-content {
+  padding: 16px 0;
+  text-align: left;
+}
+
+.about-section {
+  margin-bottom: 20px;
+}
+
+.about-section h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.about-section p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.about-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.about-section li {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+
+/* 协议内容样式 */
+.agreement-content {
+  padding: 16px 0;
+  text-align: left;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.agreement-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.agreement-content h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.agreement-content p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* 弹窗内容样式 */
+.popup-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.popup-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 输入框错误样式 */
+.input-error {
+  border-color: #ff4d4f !important;
+}
+
+.input-error:focus {
+  border-color: #ff4d4f !important;
+  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.1) !important;
+}
+
+/* 图片裁剪弹窗样式 */
+.crop-modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.crop-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+}
+
+.crop-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.crop-modal-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  overflow: auto;
+}
+
+.crop-modal-footer {
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  margin-top: 16px;
+}
+
+/* ReactCrop 样式覆盖 */
+.ReactCrop {
+  max-width: 100%;
+}
+
+.ReactCrop__crop-selection {
+  border-radius: 50% !important;
+}
+
+.ReactCrop__image {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}

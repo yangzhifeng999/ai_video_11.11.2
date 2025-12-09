@@ -1,0 +1,267 @@
+/* 创作弹窗 - 现代化设计 */
+.create-modal {
+  padding: 0;
+  background: #fff;
+}
+
+/* 顶部拖拽指示器 */
+.create-modal-drag-indicator {
+  width: 40px;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin: 12px auto 20px;
+}
+
+/* 顶部利益点提示卡片 */
+.create-modal-header {
+  padding: 0 20px 20px;
+}
+
+.create-modal-benefit-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 40px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e65100;
+  margin-bottom: 4px;
+}
+
+.benefit-subtitle {
+  font-size: 13px;
+  color: #f57c00;
+  line-height: 1.4;
+}
+
+/* 中间创作选项区域 */
+.create-modal-body {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.create-option-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #f0f0f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.create-option-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(22, 119, 255, 0.05) 0%, rgba(9, 88, 217, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.create-option-card:active {
+  transform: scale(0.98);
+  border-color: #1677ff;
+}
+
+.create-option-card:active::before {
+  opacity: 1;
+}
+
+.option-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.option-icon-wrapper.video-icon {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.option-icon-wrapper.text-icon {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+}
+
+.option-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.option-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.option-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.option-description {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.4;
+}
+
+.option-arrow {
+  font-size: 28px;
+  color: #d0d0d0;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+/* 底部分成说明区域 */
+.create-modal-footer {
+  padding: 0 20px 16px;
+}
+
+.revenue-info-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.revenue-info-card:active {
+  background: #e9ecef;
+  transform: scale(0.98);
+}
+
+.revenue-info-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.revenue-info-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+}
+
+.revenue-info-arrow {
+  color: #999;
+  font-size: 16px;
+}
+
+/* 底部取消按钮 */
+.create-modal-actions {
+  padding: 16px 20px 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.create-modal-cancel-btn {
+  width: 100%;
+  height: 48px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.create-modal-cancel-btn:active {
+  background: #f5f5f5;
+  transform: scale(0.98);
+}
+
+/* 响应式设计 */
+@media (max-width: 375px) {
+  .benefit-title {
+    font-size: 16px;
+  }
+  
+  .benefit-subtitle {
+    font-size: 12px;
+  }
+  
+  .option-title {
+    font-size: 16px;
+  }
+  
+  .option-description {
+    font-size: 12px;
+  }
+  
+  .option-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .option-icon {
+    font-size: 24px;
+  }
+}
+
+/* 动画效果 */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.create-modal-benefit-card,
+.create-option-card,
+.revenue-info-card {
+  animation: slideUp 0.3s ease-out;
+}
+
+.create-option-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.revenue-info-card {
+  animation-delay: 0.2s;
+}
+

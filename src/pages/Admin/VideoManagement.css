@@ -1,0 +1,94 @@
+.video-management-layout {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f0f2f5;
+}
+
+.video-management-content {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.filter-card {
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+.filter-card .ant-tabs-nav {
+  margin-bottom: 16px;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected-count {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+.table-card {
+  border-radius: 8px;
+}
+
+.video-title {
+  font-weight: 500;
+  color: #262626;
+  margin-bottom: 4px;
+}
+
+.price {
+  color: #ff4d4f;
+  font-weight: 500;
+}
+
+.video-stats {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.sort-preview {
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* 推荐标签样式 */
+.ant-tag {
+  cursor: default;
+}
+
+.ant-tag[style*="cursor: pointer"]:hover {
+  opacity: 0.8;
+}
+
+/* 响应式 */
+@media (max-width: 1200px) {
+  .filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

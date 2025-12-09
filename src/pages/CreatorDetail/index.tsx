@@ -1,0 +1,2 @@
+export { CreatorDetail } from './CreatorDetail';
+

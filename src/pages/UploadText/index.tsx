@@ -1,0 +1,1 @@
+export { UploadText } from './UploadText';

@@ -1,0 +1,262 @@
+.profile-edit-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.profile-edit-content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 100px;
+}
+
+/* 头像编辑区 */
+.profile-edit-avatar-section {
+  background: #fff;
+  padding: 30px 16px 20px;
+  text-align: center;
+}
+
+.avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.avatar-container:hover .avatar-overlay {
+  opacity: 1;
+}
+
+.avatar-icon {
+  font-size: 28px;
+}
+
+.avatar-text {
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.avatar-tip {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+/* 表单区 */
+.profile-edit-form {
+  background: #fff;
+  padding: 16px;
+  margin-top: 8px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.form-group:last-of-type {
+  border-bottom: none;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.required {
+  color: #ff4d4f;
+  margin-left: 4px;
+}
+
+/* 输入框样式 */
+.adm-input,
+.adm-textarea {
+  font-size: 14px !important;
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 6px !important;
+}
+
+.adm-input.input-error,
+.adm-textarea.input-error {
+  border-color: #ff4d4f !important;
+}
+
+.adm-input:focus,
+.adm-textarea:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1) !important;
+}
+
+.form-counter {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.error-message {
+  font-size: 12px;
+  color: #ff4d4f;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* 性别选项 */
+.gender-options {
+  display: flex;
+  gap: 16px;
+}
+
+.gender-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.gender-option input[type="radio"] {
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.gender-option span {
+  font-size: 14px;
+  color: #333;
+  user-select: none;
+}
+
+/* 底部按钮 */
+.profile-edit-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  z-index: 50;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+}
+
+.profile-edit-actions button {
+  flex: 1;
+}
+
+/* 图片裁剪弹窗样式 */
+.crop-modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.crop-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+}
+
+.crop-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.crop-modal-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  overflow: auto;
+}
+
+.crop-modal-footer {
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  margin-top: 16px;
+}
+
+/* ReactCrop 样式覆盖 */
+.ReactCrop {
+  max-width: 100%;
+}
+
+.ReactCrop__crop-selection {
+  border-radius: 50% !important;
+}
+
+.ReactCrop__image {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+/* 响应式设计 */
+@media (max-width: 375px) {
+  .profile-edit-content {
+    padding-bottom: 90px;
+  }
+
+  .profile-edit-avatar-section {
+    padding: 24px 12px 16px;
+  }
+
+  .avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-edit-form {
+    padding: 12px;
+  }
+}
+
+/* 加载状态 */
+.adm-button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

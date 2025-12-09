@@ -1,0 +1,177 @@
+{
+  "envId": "yang0313-7g4dqwd46c63d876",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "version": "2.0",
+  "framework": {
+    "name": "heiha-backend",
+    "plugins": {
+      "fn": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {
+          "functionRootPath": "./functions",
+          "functions": [
+            {
+              "name": "auth",
+              "timeout": 10,
+              "memory": 256,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24",
+                "TENCENT_SECRET_ID": "${TENCENT_SECRET_ID}",
+                "TENCENT_SECRET_KEY": "${TENCENT_SECRET_KEY}",
+                "TENCENT_REGION": "ap-shanghai",
+                "COS_BUCKET": "yang0313-storage-1318057968",
+                "COS_REGION": "ap-shanghai"
+              }
+            },
+            {
+              "name": "user",
+              "timeout": 10,
+              "memory": 256,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24",
+                "TENCENT_SECRET_ID": "${TENCENT_SECRET_ID}",
+                "TENCENT_SECRET_KEY": "${TENCENT_SECRET_KEY}",
+                "TENCENT_REGION": "ap-shanghai",
+                "COS_BUCKET": "yang0313-storage-1318057968",
+                "COS_REGION": "ap-shanghai"
+              }
+            },
+            {
+              "name": "video",
+              "timeout": 10,
+              "memory": 256,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24",
+                "TENCENT_SECRET_ID": "${TENCENT_SECRET_ID}",
+                "TENCENT_SECRET_KEY": "${TENCENT_SECRET_KEY}",
+                "TENCENT_REGION": "ap-shanghai",
+                "COS_BUCKET": "yang0313-storage-1318057968",
+                "COS_REGION": "ap-shanghai"
+              }
+            },
+            {
+              "name": "order",
+              "timeout": 30,
+              "memory": 512,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24",
+                "TENCENT_SECRET_ID": "${TENCENT_SECRET_ID}",
+                "TENCENT_SECRET_KEY": "${TENCENT_SECRET_KEY}",
+                "TENCENT_REGION": "ap-shanghai",
+                "COS_BUCKET": "yang0313-storage-1318057968",
+                "COS_REGION": "ap-shanghai"
+              }
+            },
+            {
+              "name": "upload",
+              "timeout": 30,
+              "memory": 256,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24",
+                "TENCENT_SECRET_ID": "${TENCENT_SECRET_ID}",
+                "TENCENT_SECRET_KEY": "${TENCENT_SECRET_KEY}",
+                "TENCENT_REGION": "ap-shanghai",
+                "COS_BUCKET": "yang0313-storage-1318057968",
+                "COS_REGION": "ap-shanghai",
+                "RUNNINGHUB_API_KEY": "YOUR_RUNNINGHUB_API_KEY"
+              }
+            },
+            {
+              "name": "payment",
+              "timeout": 30,
+              "memory": 256,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24",
+                "TENCENT_SECRET_ID": "${TENCENT_SECRET_ID}",
+                "TENCENT_SECRET_KEY": "${TENCENT_SECRET_KEY}",
+                "TENCENT_REGION": "ap-shanghai",
+                "COS_BUCKET": "yang0313-storage-1318057968",
+                "COS_REGION": "ap-shanghai"
+              }
+            },
+            {
+              "name": "taskCheck",
+              "timeout": 60,
+              "memory": 512,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "triggers": [
+                {
+                  "name": "timer",
+                  "type": "timer",
+                  "config": "0 */1 * * * * *"
+                }
+              ],
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24",
+                "TENCENT_SECRET_ID": "${TENCENT_SECRET_ID}",
+                "TENCENT_SECRET_KEY": "${TENCENT_SECRET_KEY}",
+                "TENCENT_REGION": "ap-shanghai",
+                "COS_BUCKET": "yang0313-storage-1318057968",
+                "COS_REGION": "ap-shanghai",
+                "RUNNINGHUB_API_KEY": "YOUR_RUNNINGHUB_API_KEY"
+              }
+            },
+            {
+              "name": "admin",
+              "timeout": 30,
+              "memory": 512,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24",
+                "TENCENT_SECRET_ID": "${TENCENT_SECRET_ID}",
+                "TENCENT_SECRET_KEY": "${TENCENT_SECRET_KEY}",
+                "TENCENT_REGION": "ap-shanghai",
+                "COS_BUCKET": "yang0313-storage-1318057968",
+                "COS_REGION": "ap-shanghai"
+              }
+            },
+            {
+              "name": "init",
+              "timeout": 60,
+              "memory": 256,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876"
+              }
+            },
+            {
+              "name": "message",
+              "timeout": 10,
+              "memory": 256,
+              "runtime": "Nodejs16.13",
+              "handler": "index.main",
+              "envVariables": {
+                "TCB_ENV": "yang0313-7g4dqwd46c63d876",
+                "JWT_SECRET": "306f9b145624e3a46f7f6335ea8f4364e660bed9f17c2a0f281d877304f2ad24"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+

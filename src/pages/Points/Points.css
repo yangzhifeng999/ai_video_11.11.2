@@ -1,0 +1,77 @@
+.points-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.points-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 16px;
+  padding-bottom: max(80px, calc(80px + env(safe-area-inset-bottom))); /* 为底部导航栏和安卓系统导航栏留出空间 */
+  -webkit-overflow-scrolling: touch;
+}
+
+.points-overview {
+  margin-bottom: 12px;
+}
+
+.points-total {
+  text-align: center;
+  padding: 30px 0 20px;
+}
+
+.points-total-label {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.points-total-value {
+  font-size: 48px;
+  font-weight: 600;
+  color: #ff6b6b;
+  margin-bottom: 12px;
+}
+
+.points-total-tip {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.points-list {
+  margin-bottom: 12px;
+}
+
+.points-list-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.points-item-amount {
+  text-align: right;
+}
+
+.points-income {
+  font-size: 16px;
+  font-weight: 600;
+  color: #52c41a;
+}
+
+.points-expense {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ff6b6b;
+}
+
+.points-balance {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}

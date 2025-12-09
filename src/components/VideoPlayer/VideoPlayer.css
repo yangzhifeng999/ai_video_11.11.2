@@ -1,0 +1,110 @@
+/* ==================== 视频播放器容器 ==================== */
+.video-player-container {
+  position: relative;
+  width: 100%;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-player {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+}
+
+/* ==================== 隐藏不需要的播放器控件 ==================== */
+/* 隐藏全屏按钮 */
+.video-player::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+
+/* 隐藏下载按钮 */
+.video-player::-webkit-media-controls-download-button {
+  display: none;
+}
+
+/* 隐藏3个点菜单按钮 */
+.video-player::-webkit-media-controls-overflow-menu-button {
+  display: none;
+}
+
+/* Firefox 隐藏全屏按钮 */
+.video-player::-moz-media-controls-fullscreen-button {
+  display: none;
+}
+
+/* ==================== 自定义播放速度控制 ==================== */
+.video-speed-control {
+  position: absolute;
+  bottom: 55px;
+  right: 15px;
+  z-index: 100;
+}
+
+.speed-button {
+  width: 44px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-button:hover {
+  background: rgba(0, 0, 0, 0.9);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.speed-menu {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  min-width: 110px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.speed-option {
+  color: white;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.speed-option:last-child {
+  border-bottom: none;
+}
+
+.speed-option:hover {
+  background: rgba(102, 126, 234, 0.8);
+  color: #fff;
+}
+

@@ -1,0 +1,81 @@
+.withdrawal-records-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 20px;
+}
+
+.records-list {
+  padding: 16px;
+}
+
+.record-card {
+  margin-bottom: 12px;
+  border-radius: 12px;
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.record-amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.record-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.record-info-row {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.record-label {
+  color: #999;
+  min-width: 80px;
+}
+
+.record-value {
+  color: #333;
+  flex: 1;
+}
+
+.record-actual-amount {
+  color: #52c41a;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.record-fail-reason {
+  margin-top: 8px;
+  padding: 12px;
+  background-color: #fff2e8;
+  border-radius: 8px;
+  border-left: 3px solid #ff4d4f;
+}
+
+.fail-label {
+  color: #ff4d4f;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.fail-text {
+  color: #666;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+/* 空状态 */
+.adm-empty {
+  padding: 60px 0;
+}
+
