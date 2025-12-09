@@ -16,7 +16,7 @@
 1. 点击「新建密钥」按钮
 2. 如果提示需要验证，完成身份验证（手机验证码等）
 3. 创建成功后，会显示：
-   - **SecretId**：类似 `AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`（示例格式）
+   - **SecretId**：类似 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`（示例格式）
    - **SecretKey**：类似 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`（示例格式）
 
 ⚠️ **重要**：SecretKey 只显示一次，请立即保存！

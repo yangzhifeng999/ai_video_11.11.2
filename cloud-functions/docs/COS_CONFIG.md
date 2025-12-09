@@ -118,7 +118,7 @@ yang0313-storage-1318057968/
 1. 访问：https://console.cloud.tencent.com/cam/capi
 2. 查看或创建 API 密钥
 3. 记录：
-   - SecretId: `你的实际SecretId`（类似 `AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`）
+   - SecretId: `你的实际SecretId`（类似 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`）
    - SecretKey: `你的实际SecretKey`（类似 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`）
 
 > **注意**：密钥已配置在云函数环境变量中。
